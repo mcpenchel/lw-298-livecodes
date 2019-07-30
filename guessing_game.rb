@@ -17,29 +17,25 @@
 
 counter = 0
 
-rng = (0..100).to_a.sample
+min = 0
+max = 5000000
+
+rng = (min..max).to_a.sample
 
 while true
   counter += 1
-  puts "Guess a number between 0 and 100"
-  input = gets.chomp.to_i
+  puts "#{counter} attempt(s)"
 
-  if counter > 50
-    puts "BOO! You have #{counter} attempts."
-  else
-    puts "You have #{counter} attempts."
-  end
+  guess = ((max + min) / 2).round
 
-  if input == rng
-    puts "Congrats!"
+  if guess == rng
+    puts "Congrats! The number is #{rng}"
     break
   else
-    # condition ? true : false
-    puts "You're wrong! Try again! you're a baby unicorn"
-    if input > rng
-      puts "The right number is smaller"
+    if guess > rng
+      max = guess
     else
-      puts "The right number is bigger"
+      min = guess
     end
   end
 end
