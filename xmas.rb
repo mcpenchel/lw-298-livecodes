@@ -13,10 +13,10 @@ end
 
 puts days_until_christmas.class == Integer
 
-# For this to keep working in the future
+# For the tests to keep working in the future,
+# considering this was done for July 30 2019
 time_diff = (Date.today - Date.new(2019, 7, 30)).to_i
 
-# Considering when this was done, on July 30, 2019
 puts days_until_christmas == 148 + time_diff
 puts days_until_christmas(2020) == 514 + time_diff
 
