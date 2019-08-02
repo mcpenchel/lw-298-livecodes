@@ -1,21 +1,22 @@
-# define method acronym
+
+#define method acronym
 # receive sentence take first letter of each word
 # capitalize each letter
 # concatenate and return the acronym
 def acronym(sentence)
   return "" if sentence == ""
-
-  answer = ""
-  words = sentence.split
-
-  words.each do |word|
-    answer += word[0].capitalize
-  end
-
-  answer
+  new_sentence = sentence.split.map { |palabras| palabras[0].upcase }
+  new_sentence.join
 end
 
-puts acronym("Not safe for work") == "NSFW"
-puts acronym("") == ""
-puts acronym("").class == String
 
+
+describe '#acronym' do
+  it "returns an empty string if we send an empty string" do
+    expect(acronym("")).to eq("")
+  end
+
+  it "returns the 1st letter of each word upcased" do
+    expect(acronym("Not safe for work")).to eq("NSFW")
+  end
+end
