@@ -21,7 +21,9 @@ class Router
     puts "1. List all recipes"
     puts "2. Create a new recipe"
     puts "3. Remove a recipe"
-    puts "4. Quit the application"
+    puts "4. Import recipes from Marmiton"
+    puts "5. Mark a recipe as cooked already"
+    puts "6. Quit the application"
     gets.chomp
   end
 
@@ -34,6 +36,10 @@ class Router
     when "3"
       @controller.destroy
     when "4"
+      @controller.search
+    when "5"
+      @controller.update
+    when "6"
       @running = false
     else
       puts "Invalid action number, please try again."
